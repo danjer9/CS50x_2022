@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>Trivia!</title>
+        <script>
+
+            // TODO: Add code to check answers to questions
+            document.addEventListener('DOMContentLoaded', function() {
+                let correct = document.querySelector('.correct');
+                correct.addEventListener('click', function(){
+                    correct.style.backgroundColor = '#00FF00';
+                    document.querySelector('#feedback1').innerHTML = 'Correct!';
+                });
+                let incorrects = document.querySelectorAll('.incorrect');
+                for (let i = 0; i < incorrects.length; i++) {
+                    incorrects[i].addEventListener('click', function() {
+                        incorrects[i].style.backgroundColor = '#FF0000';
+                        document.querySelector('#feedback1').innerHTML = 'Incorrect';
+                    });
+                }
+                document.querySelector('#check').addEventListener('click', function() {
+                    let input = document.querySelector('input');
+                    if (input.value === 'Time' || input.value === 'time') {
+                        input.style.backgroundColor = '#00FF00';
+                        document.querySelector('#feedback2').innerHTML = 'Correct!';
+                    } else {
+                        input.style.backgroundColor = '#FF0000';
+                        document.querySelector('#feedback2').innerHTML = 'Incorrect';
+                    }
+                });
+                });
+
+        </script>
+    </head>
+    <body>
+        <div class="header">
+            <h1>Mr.Quiz?! Who called Mr.Quiz?!</h1>
+        </div>
+
+        <div class="container">
+            <div class="section">
+                <div class="section2">
+                    <h2>Part 1: Multiple Choice </h2>
+                </div>
+                <div class="section3">
+                    <h3>
+                        <p>Question:</p>
+                        <p>What is the combined Atk of Cannon + MiniBomb + WideSwrd?</p>
+                    </h3>
+
+                    <!-- TODO: Add multiple choice question here -->
+                    <div class="row">
+                        <button class="incorrect">150</button>
+                        <button class="correct">170</button>
+                        <button class="incorrect">230</button>
+                        <p class="font" id="feedback1"></p>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section2">
+                    <h2>Part 2: Free Response</h2>
+                </div>
+                <div class="section3">
+                    <h3>
+                        <p>Question:</p>
+                        <p>It grinds down hills yet remains unseen.</p>
+                    </h3>
+
+                    <!-- TODO: Add free response question here -->
+                    <div class="row">
+                    <p><input type="text"></input></p>
+                    <p><button id="check">Check answer!</button></p>
+                    <p class="font" id="feedback2"></p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
